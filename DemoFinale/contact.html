@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRAUTO - Association</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1410 50%, #0a0a0a 100%);
+            color: #d4af37;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .steam-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.6), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .gear-decoration {
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateSlow 30s linear infinite;
+        }
+        
+        .gear-1 { top: 10%; left: 5%; animation-duration: 28s; }
+        .gear-2 { bottom: 15%; right: 8%; animation-duration: 35s; animation-direction: reverse; }
+        .gear-3 { top: 50%; left: 50%; animation-duration: 40s; transform: translate(-50%, -50%); }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header */
+       /*HEADER*/
+        header {
+            background: linear-gradient(180deg, #1a1410 0%, #0f0c08 100%);
+            color: #d4af37;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+            border-bottom: 3px solid #8b5a2b;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(139, 90, 43, 0.1) 10px,
+                rgba(139, 90, 43, 0.1) 11px
+            );
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #2a1f15 0%, #1a1410 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #d4af37;
+            box-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                inset 0 2px 10px rgba(0, 0, 0, 0.5),
+                0 0 0 3px #8b5a2b,
+                0 0 0 6px #1a1410;
+            border: 2px solid #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+        .logoImg{
+            width: 80px;
+            height: 80px;
+        }
+
+
+        .LogoTitle{
+
+            width: 250px;
+            height: 100px;
+
+        }
+
+
+        .site-title h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .site-title p {
+            font-size: 14px;
+            opacity: 0.8;
+            color: #b87333;
+            font-style: italic;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 30px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        /*fin de la nav*/
+
+        
+        /* Page Title */
+        .page-header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5em;
+            color: #d4af37;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.6);
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+        
+        .page-header p {
+            font-size: 1.4em;
+            color: #e5c048;
+            font-style: italic;
+        }
+        
+        .decorative-line {
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        .decorative-line::before,
+        .decorative-line::after {
+            content: '⚙';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #d4af37;
+        }
+        
+        .decorative-line::before {
+            left: -30px;
+        }
+        
+        .decorative-line::after {
+            right: -30px;
+        }
+        
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 0 40px rgba(212, 175, 55, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-section::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #d4af37, #8b7355, #d4af37, #8b7355);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            filter: blur(15px);
+            animation: borderGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2em;
+            color: #d4af37;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(212, 175, 55, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37);
+        }
+        
+        .section-title::after {
+            background: linear-gradient(90deg, #d4af37, transparent);
+        }
+        
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.5);
+            border: 2px solid #8b7355;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #d4af37;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .social-link:hover {
+            border-color: #d4af37;
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #d4af37 0%, #8b7355 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .social-link:hover .social-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+        }
+        
+        .social-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #e5c048;
+        }
+        
+        .social-info p {
+            color: #c9a961;
+            font-size: 1.1em;
+        }
+        
+        /* Contact Info */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 0 40px rgba(212, 175, 55, 0.08);
+            transition: all 0.4s;
+        }
+        
+        .info-box:hover {
+            border-color: #d4af37;
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3), inset 0 0 40px rgba(212, 175, 55, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(10, 10, 10, 0.4);
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .info-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: radial-gradient(circle, #d4af37 0%, #8b7355 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            border: 2px solid #d4af37;
+            flex-shrink: 0;
+        }
+        
+        .info-text {
+            flex: 1;
+        }
+        
+        .info-text h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3em;
+            color: #e5c048;
+            margin-bottom: 5px;
+        }
+        
+        .info-text p {
+            color: #c9a961;
+            font-size: 1.05em;
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 4px solid #d4af37;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4), inset 0 0 50px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotateBackground 20s linear infinite;
+        }
+        
+        @keyframes rotateBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .newsletter-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .newsletter-header p {
+            font-size: 1.3em;
+            color: #e5c048;
+            font-style: italic;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 15px 20px;
+            background: rgba(10, 10, 10, 0.6);
+            border: 2px solid #8b7355;
+            border-radius: 8px;
+            color: #d4af37;
+            font-size: 1.1em;
+            font-family: 'Crimson Text', serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            background: rgba(10, 10, 10, 0.8);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.4);
+            border: 2px solid #8b7355;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-group:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: #d4af37;
+        }
+        
+        .checkbox-group label {
+            font-size: 1.1em;
+            color: #c9a961;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .submit-btn {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            border: none;
+            border-radius: 10px;
+            color: #0a0a0a;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .submit-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #e5c048 0%, #9c8466 100%);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            color: #90EE90;
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            animation: slideDown 0.5s;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .site-title {
+                font-size: 1.8em;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5em;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            .newsletter-section {
+                padding: 30px 20px;
+            }
+        }
+         /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(15, 10, 5, 0.95) 0%, rgba(10, 5, 0, 0.98) 100%);
+            border-top: 3px solid #d4af37;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .partner {
+            padding: 15px 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #8b7355;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            
+        }
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #8b7355;
+            color: #8b7355;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .site-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg style="display: none;">
+        <symbol id="gear" viewBox="0 0 100 100">
+            <path fill="#d4af37" d="M50,20 L55,30 L65,28 L63,38 L72,43 L65,50 L72,57 L63,62 L65,72 L55,70 L50,80 L45,70 L35,72 L37,62 L28,57 L35,50 L28,43 L37,38 L35,28 L45,30 Z">
+                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+            </path>
+        </symbol>
+    </svg>
+    
+    <svg class="gear-decoration gear-1"><use href="#gear"/></svg>
+    <svg class="gear-decoration gear-2"><use href="#gear"/></svg>
+    <svg class="gear-decoration gear-3"><use href="#gear"/></svg>
+    
+     <header>
+        <div class="header-content">
+            <div class="logo"><img class="logoImg" src="LogoCircular.png" alt="Logo de l'association"></div>
+            <div class="site-title">
+                <!--<h1>RETRAUTO Club</h1>--><img class="LogoTitle" src="TitreFinalRemastered-removebg-preview.png" alt="RETRAUTO">
+                <p>Association des passionnés d'automobiles classiques et sportives</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="voitures.html">Voitures</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="event.html">Événements</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>⚙️ Nous Contacter ⚙️</h1>
+                <div class="decorative-line"></div>
+                <p>Rejoignez notre communauté de passionnés</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Social Media -->
+                <div class="social-section">
+                    <h2 class="section-title">Réseaux Sociaux</h2>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-social="facebook">
+                            <div class="social-icon">📘</div>
+                            <div class="social-info">
+                                <h3>Facebook</h3>
+                                <p>@retrauto-commu</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-link" data-social="twitter">
+                            <div class="social-icon">🐦</div>
+                            <div class="social-info">
+                                <h3>Twitter</h3>
+                                <p>@Retrauto</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-link" data-social="instagram">
+                            <div class="social-icon">📸</div>
+                            <div class="social-info">
+                                <h3>Instagram</h3>
+                                <p>@retrauto_passion</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="social-link" data-social="youtube">
+                            <div class="social-icon">🎥</div>
+                            <div class="social-info">
+                                <h3>YouTube</h3>
+                                <p>RETRAUTO</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info-section">
+                    <div class="info-box">
+                        <h2 class="section-title">Coordonnées</h2>
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <div class="info-text">
+                                <h4>Email</h4>
+                                <p>contact@retrauto-commu.fr</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-text">
+                                <h4>Téléphone</h4>
+                                <p>+33 1 45 67 89 00</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-text">
+                                <h4>Adresse</h4>
+                                <p>15 Rue des Engrenages, 75008 Paris</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h2 class="section-title">Horaires</h2>
+                        <div class="info-item">
+                            <div class="info-icon">🕐</div>
+                            <div class="info-text">
+                                <h4>Bureau</h4>
+                                <p>Lun-Ven : 10h - 18h</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">⚙️</div>
+                            <div class="info-text">
+                                <h4>Atelier</h4>
+                                <p>Sam : 9h - 17h (sur RDV)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter-section">
+                    <div class="newsletter-content">
+                        <div class="newsletter-header">
+                            <h2>🔧 Devenir Membre 🔧</h2>
+                            <p>Rejoignez notre confrérie et restez informé de toutes nos actualités</p>
+                        </div>
+                        
+                        <form id="memberForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>⚙️ Prénom</label>
+                                    <input type="text" name="firstname" placeholder="Votre prénom" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>⚙️ Nom</label>
+                                    <input type="text" name="lastname" placeholder="Votre nom" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>📧 Email</label>
+                                    <input type="email" name="email" placeholder="votre.email@exemple.fr" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>📞 Téléphone</label>
+                                    <input type="tel" name="phone" placeholder="+33 6 12 34 56 78">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>🚗 Voiture favorite</label>
+                                    <select name="favorite-car" required>
+                                        <option value="">Choisissez votre modèle préféré</option>
+                                        <option value="bugatti">Bugatti Type 35</option>
+                                        <option value="jaguar">Jaguar Type E</option>
+                                        <option value="mercedes">Mercedes-Benz 300 SL</option>
+                                        <option value="ford">Ford Model T</option>
+                                        <option value="rolls">Rolls-Royce Phantom</option>
+                                        <option value="citroen">Citroën Traction Avant</option>
+                                        <option value="aston">Aston Martin DB5</option>
+                                        <option value="alfa">Alfa Romeo Spider</option>
+                                        <option value="porsche">Porsche 911</option>
+                                        <option value="autre">Autre modèle</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>🔧 Type d'adhésion</label>
+                                    <select name="membership" required>
+                                        <option value="">Choisissez votre formule</option>
+                                        <option value="decouverte">Découverte (30€/an)</option>
+                                        <option value="passione">Passionné (75€/an)</option>
+                                        <option value="collectionneur">Collectionneur (150€/an)</option>
+                                        <option value="bienfaiteur">Bienfaiteur (300€/an)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label>💭 Parlez-nous de votre passion</label>
+                                    <input type="text" name="message" placeholder="Quelle est votre histoire avec l'automobile ancienne ?">
+                                </div>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                <label for="newsletter">📬 Je souhaite recevoir la gazette mensuelle de RETRAUTO (événements, restaurations, anecdotes historiques)</label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="events" name="events" checked>
+                                <label for="events">🏁 M'informer des rassemblements et sorties organisés par l'association</label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="workshop" name="workshop">
+                                <label for="workshop">🔧 Participer aux ateliers de restauration et d'entretien (niveau débutant à expert)</label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">⚖️ J'accepte les conditions d'adhésion et le règlement intérieur de l'association</label>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 30px;">
+                                <button type="submit" class="submit-btn">
+                                    <span style="position: relative; z-index: 1;">⚙️ Rejoindre l'Association⚙️</span>
+                                </button>
+                            </div>
+                            
+                            <div class="success-message" id="successMessage">
+                                ✨ Bienvenue dans RETRAUTO ! Vous recevrez un email de confirmation sous peu. ✨
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div style="margin: 60px 0;">
+                <div style="background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%); border: 3px solid #d4af37; border-radius: 15px; padding: 40px; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);">
+                    <h2 class="section-title">📍 Notre Atelier</h2>
+                    <div style="background: #1a1410; border: 2px solid #8b7355; border-radius: 10px; padding: 40px; text-align: center;">
+                        <svg viewBox="0 0 800 400" style="width: 100%; max-width: 800px; height: auto;">
+                            <defs>
+                                <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2a2420;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1a1410;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Background -->
+                            <rect width="800" height="400" fill="url(#mapBg)"/>
+                            
+                            <!-- Streets -->
+                            <line x1="100" y1="200" x2="700" y2="200" stroke="#8b7355" stroke-width="4" opacity="0.6"/>
+                            <line x1="400" y1="50" x2="400" y2="350" stroke="#8b7355" stroke-width="4" opacity="0.6"/>
+                            <line x1="250" y1="100" x2="250" y2="300" stroke="#8b7355" stroke-width="3" opacity="0.4"/>
+                            <line x1="550" y1="100" x2="550" y2="300" stroke="#8b7355" stroke-width="3" opacity="0.4"/>
+                            
+                            <!-- Buildings -->
+                            <rect x="120" y="120" width="100" height="60" fill="#3a2a1a" stroke="#8b7355" stroke-width="2"/>
+                            <rect x="500" y="130" width="80" height="50" fill="#3a2a1a" stroke="#8b7355" stroke-width="2"/>
+                            <rect x="600" y="220" width="70" height="60" fill="#3a2a1a" stroke="#8b7355" stroke-width="2"/>
+                            <rect x="150" y="240" width="60" height="50" fill="#3a2a1a" stroke="#8b7355" stroke-width="2"/>
+                            
+                            <!-- Main Building (Association) -->
+                            <rect x="350" y="160" width="120" height="80" fill="#4a3a2a" stroke="#d4af37" stroke-width="4"/>
+                            <rect x="365" y="175" width="25" height="30" fill="#1a1410" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="405" y="175" width="25" height="30" fill="#1a1410" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="445" y="175" width="25" height="30" fill="#1a1410" stroke="#d4af37" stroke-width="2"/>
+                            <rect x="380" y="215" width="40" height="25" fill="#2a1810" stroke="#d4af37" stroke-width="2"/>
+                            
+                            <!-- Pin marker -->
+                            <g filter="url(#glow)">
+                                <circle cx="410" cy="140" r="15" fill="#d4af37" stroke="#e5c048" stroke-width="3">
+                                    <animate attributeName="r" values="15;18;15" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <path d="M410,140 L410,160" stroke="#d4af37" stroke-width="3"/>
+                                <text x="410" y="145" font-size="16" fill="#1a1410" text-anchor="middle" font-weight="bold">⚙</text>
+                            </g>
+                            
+                            <!-- Compass -->
+                            <g transform="translate(50, 50)">
+                                <circle cx="0" cy="0" r="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                <path d="M0,-25 L5,0 L0,5 L-5,0 Z" fill="#d4af37"/>
+                                <text x="0" y="-35" font-size="12" fill="#d4af37" text-anchor="middle" font-family="Cinzel">N</text>
+                            </g>
+                            
+                            <!-- Title -->
+                            <text x="400" y="380" font-size="24" fill="#d4af37" text-anchor="middle" font-family="Cinzel">15 Rue des Engrenages, Paris 8ème</text>
+                        </svg>
+                        <div style="margin-top: 30px; color: #c9a961; font-size: 1.2em;">
+                            <p style="margin-bottom: 10px;">🚇 <strong>Métro :</strong> Ligne 9 - Station Saint-Philippe-du-Roule</p>
+                            <p style="margin-bottom: 10px;">🚌 <strong>Bus :</strong> Lignes 28, 32, 52, 83</p>
+                            <p>🅿️ <strong>Parking :</strong> Parking sécurisé disponible pour véhicules de collection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 60px 0; padding-bottom: 40px;">
+                <div style="background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%); border: 2px solid #8b7355; border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#d4af37'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#8b7355'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3em; margin-bottom: 15px;">📚</div>
+                    <h3 style="font-family: 'Cinzel', serif; color: #d4af37; margin-bottom: 10px; font-size: 1.5em;">Bibliothèque</h3>
+                    <p style="color: #c9a961; font-size: 1.1em;">Plus de 500 ouvrages sur l'histoire automobile</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%); border: 2px solid #8b7355; border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#d4af37'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#8b7355'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🔧</div>
+                    <h3 style="font-family: 'Cinzel', serif; color: #d4af37; margin-bottom: 10px; font-size: 1.5em;">Atelier</h3>
+                    <p style="color: #c9a961; font-size: 1.1em;">Équipement professionnel pour restauration</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%); border: 2px solid #8b7355; border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s;" onmouseover="this.style.borderColor='#d4af37'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='#8b7355'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 3em; margin-bottom: 15px;">☕</div>
+                    <h3 style="font-family: 'Cinzel', serif; color: #d4af37; margin-bottom: 10px; font-size: 1.5em;">Salon</h3>
+                    <p style="color: #c9a961; font-size: 1.1em;">Espace convivial pour échanger entre passionnés</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="partners">
+                <div class="partner">⚙️ Engrenages & Cie</div>
+                <div class="partner">🔧 Ateliers Mécaniques Réunis</div>
+                <div class="partner">🏁 Circuit Vintage Paris</div>
+                <div class="partner">⚡ Moteurs d'Antan</div>
+                <div class="partner">🔩 La Forge Automobile</div>
+            </div>
+            <div class="copyright">
+                © 2025 RETRAUTO - Association Loi 1901 | Tous droits réservés | Design Steampunk
+                <br>
+                "Préserver le passé, conduire vers l'avenir"
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Create steam particles
+        function createSteamParticles() {
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'steam-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(particle);
+            }
+        }
+        
+        createSteamParticles();
+        
+        // Form submission
+        const form = document.getElementById('memberForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form processing
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span style="position: relative; z-index: 1;">⚙️ Traitement en cours... ⚙️</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Reset form
+                form.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }, 2000);
+        });
+        
+        // Social links interaction
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const social = this.dataset.social;
+                const messages = {
+                    facebook: 'Rejoignez notre page Facebook pour suivre nos actualités quotidiennes !',
+                    twitter: 'Suivez-nous sur Twitter pour nos publications en temps réel !',
+                    instagram: 'Découvrez nos photos exclusives sur Instagram !',
+                    youtube: 'Abonnez-vous à notre chaîne YouTube pour nos vidéos de restauration !'
+                };
+                
+                alert(`🔧 ${messages[social]}\n\nVous serez redirigé vers notre page ${social.charAt(0).toUpperCase() + social.slice(1)}...`);
+            });
+        });
+        
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Add hover effects to form inputs
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateX(5px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRAUTO - À propos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1410 50%, #0a0a0a 100%);
+            color: #d4af37;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .gear-decoration {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateSlow 30s linear infinite;
+        }
+        
+        .gear-1 { top: 5%; right: 5%; animation-duration: 35s; }
+        .gear-2 { bottom: 10%; left: 10%; animation-duration: 40s; animation-direction: reverse; }
+        .gear-3 { top: 40%; left: 3%; animation-duration: 45s; }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(180deg, #1a1410 0%, #0f0c08 100%);
+            color: #d4af37;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+            border-bottom: 3px solid #8b5a2b;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(139, 90, 43, 0.1) 10px,
+                rgba(139, 90, 43, 0.1) 11px
+            );
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #2a1f15 0%, #1a1410 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #d4af37;
+            box-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                inset 0 2px 10px rgba(0, 0, 0, 0.5),
+                0 0 0 3px #8b5a2b,
+                0 0 0 6px #1a1410;
+            border: 2px solid #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        .logoImg{
+            width: 80px;
+            height: 80px;
+        }
+
+
+        .LogoTitle{
+
+            width: 250px;
+            height: 100px;
+
+        }
+
+
+        .site-title h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .site-title p {
+            font-size: 14px;
+            opacity: 0.8;
+            color: #b87333;
+            font-style: italic;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 30px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        /*fin de la nav*/
+        
+        /* Page Title */
+        .page-header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5em;
+            color: #d4af37;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.6);
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+        
+        .page-header p {
+            font-size: 1.4em;
+            color: #e5c048;
+            font-style: italic;
+        }
+        
+        .decorative-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 20px auto;
+        }
+       
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+            50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4em;
+            color: #d4af37;
+            text-shadow: 4px 4px 20px rgba(212, 175, 55, 0.6);
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            position: relative;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8em;
+            color: #e5c048;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .hero-quote {
+            font-size: 1.3em;
+            color: #c9a961;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            border-right: 4px solid #d4af37;
+            background: rgba(10, 10, 10, 0.4);
+        }
+        
+        .decorative-divider {
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 40px auto;
+            position: relative;
+        }
+        
+        .decorative-divider::before,
+        .decorative-divider::after {
+            content: '⚙';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #d4af37;
+            animation: rotateSlow 10s linear infinite;
+        }
+        
+        .decorative-divider::before {
+            left: -35px;
+        }
+        
+        .decorative-divider::after {
+            right: -35px;
+            animation-direction: reverse;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #d4af37, transparent);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(212, 175, 55, 0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .timeline-content:hover {
+            border-color: #d4af37;
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4), inset 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #d4af37 0%, #8b7355 100%);
+            border: 5px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0a0a0a;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            z-index: 10;
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content p {
+            font-size: 1.2em;
+            color: #c9a961;
+            line-height: 1.8;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(20, 15, 10, 0.6) 0%, rgba(30, 25, 20, 0.6) 100%);
+            margin: 60px 0;
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .value-card:hover::before {
+            opacity: 1;
+            animation: rotateBackground 4s linear infinite;
+        }
+        
+        @keyframes rotateBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .value-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+        }
+        
+        .value-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            color: #d4af37;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card p {
+            font-size: 1.15em;
+            color: #c9a961;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 60px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .team-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #d4af37 0%, #8b7355 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            border: 4px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        .team-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        
+        .team-role {
+            color: #e5c048;
+            font-size: 1.1em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .team-card p {
+            color: #c9a961;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.7) 0%, rgba(20, 15, 10, 0.8) 100%);
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            animation: statsGlow 5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes statsGlow {
+            from { opacity: 0.3; }
+            to { opacity: 0.7; }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 10, 10, 0.5);
+            border: 2px solid #8b7355;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 4em;
+            color: #d4af37;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.3em;
+            color: #e5c048;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 4px solid #d4af37;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4), inset 0 0 50px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: rotateBackground 15s linear infinite;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-box h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .cta-box p {
+            font-size: 1.5em;
+            color: #e5c048;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7);
+            background: linear-gradient(135deg, #e5c048 0%, #9c8466 100%);
+        }
+        
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo::before {
+                font-size: 30px;
+            }
+            
+            .site-title {
+                font-size: 1.6em;
+                letter-spacing: 2px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav a {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            
+            .hero-section {
+                padding: 40px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5em;
+                letter-spacing: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4em;
+            }
+            
+            .hero-quote {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 2.2em;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 80px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-year {
+                left: 30px;
+                width: 80px;
+                height: 80px;
+                font-size: 1.2em;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.6em;
+            }
+            
+            .timeline-content p {
+                font-size: 1.05em;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .value-card {
+                padding: 30px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .stat-number {
+                font-size: 3em;
+            }
+            
+            .cta-box {
+                padding: 40px 20px;
+            }
+            
+            .cta-box h2 {
+                font-size: 2.2em;
+            }
+            
+            .cta-box p {
+                font-size: 1.2em;
+            }
+            
+            .cta-button {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                width: 100%;
+            }
+            
+            .gear-decoration {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo::before {
+                font-size: 24px;
+            }
+            
+            .site-title {
+                font-size: 1.3em;
+                letter-spacing: 1px;
+            }
+            
+            nav a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            
+            .hero-section {
+                padding: 30px 0;
+            }
+            
+            .hero-title {
+                font-size: 2em;
+                letter-spacing: 2px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+            
+            .hero-quote {
+                font-size: 1em;
+                padding: 12px;
+            }
+            
+            .decorative-divider {
+                width: 200px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+                margin-bottom: 50px;
+            }
+            
+            .timeline-year {
+                width: 60px;
+                height: 60px;
+                font-size: 1em;
+                left: 20px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.4em;
+            }
+            
+            .timeline-content p {
+                font-size: 1em;
+            }
+            
+            .value-icon {
+                font-size: 3em;
+            }
+            
+            .value-card h3 {
+                font-size: 1.5em;
+            }
+            
+            .value-card p {
+                font-size: 1em;
+            }
+            
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5em;
+            }
+            
+            .team-card h4 {
+                font-size: 1.3em;
+            }
+            
+            .stat-number {
+                font-size: 2.5em;
+            }
+            
+            .stat-label {
+                font-size: 1.1em;
+            }
+            
+            .cta-box {
+                padding: 30px 15px;
+            }
+            
+            .cta-box h2 {
+                font-size: 1.8em;
+            }
+            
+            .cta-box p {
+                font-size: 1.1em;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+            
+            .gear-decoration {
+                display: none;
+            }
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(15, 10, 5, 0.95) 0%, rgba(10, 5, 0, 0.98) 100%);
+            border-top: 3px solid #d4af37;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .partner {
+            padding: 15px 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #8b7355;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #8b7355;
+            color: #8b7355;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .site-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg style="display: none;">
+        <symbol id="gear" viewBox="0 0 100 100">
+            <path fill="#d4af37" d="M50,20 L55,30 L65,28 L63,38 L72,43 L65,50 L72,57 L63,62 L65,72 L55,70 L50,80 L45,70 L35,72 L37,62 L28,57 L35,50 L28,43 L37,38 L35,28 L45,30 Z">
+                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+            </path>
+        </symbol>
+    </svg>
+    
+    <svg class="gear-decoration gear-1"><use href="#gear"/></svg>
+    <svg class="gear-decoration gear-2"><use href="#gear"/></svg>
+    <svg class="gear-decoration gear-3"><use href="#gear"/></svg>
+    
+     <header>
+        <div class="header-content">
+            <div class="logo"><img class="logoImg" src="LogoCircular.png" alt="Logo de l'association"></div>
+            <div class="site-title">
+                <!--<h1>RETRAUTO Club</h1>--><img class="LogoTitle" src="TitreFinalRemastered-removebg-preview.png" alt="RETRAUTO">
+                <p>Association des passionnés d'automobiles classiques et sportives</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="voitures.html">Voitures</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html"  class="active">À propos</a></li>
+            <li><a href="event.html">Événements</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">⚙️ Notre Histoire ⚙️</h1>
+                <p class="hero-subtitle">Une passion qui traverse les âges</p>
+                <div class="decorative-divider"></div>
+                <p class="hero-quote">
+                    "Nous ne restaurons pas seulement des voitures, nous préservons des fragments d'histoire, 
+                    des témoins d'une époque où chaque véhicule était une œuvre d'art mécanique unique."
+                </p>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">🔧 Chronologie de l'Association 🔧</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>La Genèse</h3>
+                            <p>
+                                Tout commence dans un petit atelier parisien où trois amis passionnés, Auguste, Henri et Victoire, 
+                                restaurent une Bugatti Type 35. De longues soirées à débattre de l'histoire automobile 
+                                les poussent à créer un lieu de rencontre pour tous les amoureux des mécaniques anciennes.
+                            </p>
+                        </div>
+                        <div class="timeline-year">1998</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Naissance Officielle</h3>
+                            <p>
+                                L'association RETRAUTO est officiellement créé. L'association compte 12 membres fondateurs 
+                                et organise son premier rassemblement à Sainte-Baume avec 8 véhicules d'exception. 
+                                L'engouement est immédiat.
+                            </p>
+                        </div>
+                        <div class="timeline-year">1999</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>L'Expansion</h3>
+                            <p>
+                                Acquisition de notre atelier historique rue des Engrenages. 150 membres nous rejoignent. 
+                                Lancement de notre gazette mensuelle "L'Écho du Piston" et création de notre première 
+                                bibliothèque spécialisée en histoire automobile.
+                            </p>
+                        </div>
+                        <div class="timeline-year">2005</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Reconnaissance Nationale</h3>
+                            <p>
+                                Organisation du Grand Rallye de RETRAUTO avec plus de 200 véhicules participants. 
+                                L'association est reconnue d'intérêt général. Création de notre programme d'ateliers pédagogique 
+                                "Jeunes Mécaniciens" pour transmettre aux nouvelles générations.
+                            </p>
+                        </div>
+                        <div class="timeline-year">2012</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Une association active</h3>
+                            <p>
+                                Numérisation de 
+                                nos archives historiques. Partenariats avec des musées automobiles européens. 
+                                Plus de 800 membres actifs dans toute la France.
+                            </p>
+                        </div>
+                        <div class="timeline-year">2018</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Aujourd'hui</h3>
+                            <p>
+                                RETRAUTO comptent plus de 1200 membres et souhaite à présent ouvrir sa propre plateforme numérique.
+                                Notre atelier accueille 50 restaurations par an. Nous organisons 24 événements annuels et collaborons 
+                                avec des collectionneurs à l'international. L'aventure continue !
+                            </p>
+                        </div>
+                        <div class="timeline-year">2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title">⚙️ Nos Valeurs ⚙️</h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🏛️</div>
+                        <h3>Patrimoine</h3>
+                        <p>
+                            Préserver et transmettre l'héritage automobile pour les générations futures. 
+                            Chaque véhicule est un témoin irremplaçable de l'histoire industrielle et culturelle.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Communauté</h3>
+                        <p>
+                            Créer des liens entre passionnés de tous horizons. Le partage de connaissances 
+                            et d'expériences est au cœur de notre association.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🔧</div>
+                        <h3>Savoir-Faire</h3>
+                        <p>
+                            Perpétuer les techniques artisanales de restauration. Former les nouveaux artisans 
+                            et préserver les métiers traditionnels de la mécanique ancienne.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Connaissance</h3>
+                        <p>
+                            Documenter et étudier l'histoire automobile. Notre bibliothèque et nos archives 
+                            constituent une ressource inestimable pour chercheurs et passionnés.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Responsabilité</h3>
+                        <p>
+                            Concilier passion et écologie. Promouvoir une utilisation raisonnée et un entretien 
+                            durable des véhicules de collection.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">✨</div>
+                        <h3>Excellence</h3>
+                        <p>
+                            Rechercher la perfection dans chaque restauration. Respecter l'authenticité 
+                            et l'originalité de chaque véhicule que nous prenons en charge.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">👥 Le Bureau Directeur 👥</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">⚙️</div>
+                        <h4>Auguste Delacroix</h4>
+                        <p class="team-role">Président Fondateur</p>
+                        <p>
+                            Collectionneur passionné et expert en véhicules d'avant-guerre. 
+                            Restaurateur de Bugatti depuis 30 ans.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">🔧</div>
+                        <h4>Victoire Beaumont</h4>
+                        <p class="team-role">Vice-Présidente</p>
+                        <p>
+                            Ingénieure mécanique et spécialiste des véhicules britanniques. 
+                            Dirige notre atelier de restauration.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">⚡</div>
+                        <h4>Henri Mécanique</h4>
+                        <p class="team-role">Trésorier</p>
+                        <p>
+                            Ancien directeur technique chez un grand constructeur. 
+                            Passionné de voitures à vapeur et de prototypes rares.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">🏁</div>
+                        <h4>Marguerite Engrenage</h4>
+                        <p class="team-role">Secrétaire Générale</p>
+                        <p>
+                            Pilote de rallye historique et organisatrice d'événements. 
+                            Coordonne nos rassemblements annuels.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">📚</div>
+                        <h4>Théodore Volant</h4>
+                        <p class="team-role">Archiviste</p>
+                        <p>
+                            Historien de l'automobile et auteur de plusieurs ouvrages. 
+                            Responsable de notre bibliothèque et archives.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">🎨</div>
+                        <h4>Amélie Carrossier</h4>
+                        <p class="team-role">Directrice Communication</p>
+                        <p>
+                            Designer et photographe automobile. Gère notre présence 
+                            sur les réseaux et nos publications.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">🔩</div>
+                        <h4>Édouard Piston</h4>
+                        <p class="team-role">Maître Artisan</p>
+                        <p>
+                            Formé aux métiers traditionnels de la carrosserie. 
+                            Anime nos ateliers de formation et de transmission.
+                        </p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">🌟</div>
+                        <h4>Louise Cylindre</h4>
+                        <p class="team-role">Responsable Partenariats</p>
+                        <p>
+                            Développe nos relations avec musées et collectionneurs. 
+                            Organise nos expositions itinérantes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="section-title">📊 RETRAUTO en Chiffres 📊</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">1200+</span>
+                        <span class="stat-label">Membres Actifs</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">26</span>
+                        <span class="stat-label">Années d'Existence</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">350+</span>
+                        <span class="stat-label">Véhicules Restaurés</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Événements Annuels</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Ouvrages en Bibliothèque</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Pays Représentés</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">50</span>
+                        <span class="stat-label">Ateliers par An</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Passion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <div class="cta-content">
+                        <h2>🔧 Rejoignez l'Aventure 🔧</h2>
+                        <p>
+                            Que vous soyez collectionneur chevronné, apprenti mécanicien ou simple admirateur 
+                            de belles mécaniques, il y a une place pour vous parmi les membres de RETRAUTO. 
+                            Ensemble, préservons ce patrimoine extraordinaire pour les générations futures.
+                        </p>
+                        <a href="contact.html" class="cta-button">
+                            <span>⚙️ Devenir Membre ⚙️</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="partners">
+                    <div class="partner">⚙️ Engrenages & Cie</div>
+                    <div class="partner">🔧 Ateliers Mécaniques Réunis</div>
+                    <div class="partner">🏁 Circuit Vintage Paris</div>
+                    <div class="partner">⚡ Moteurs d'Antan</div>
+                    <div class="partner">🔩 La Forge Automobile</div>
+                </div>
+                <div class="copyright">
+                    © 2025 RETRAUTO - Association Loi 1901 | Tous droits réservés | Design Steampunk
+                    <br>
+                    "Préserver le passé, conduire vers l'avenir"
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        if (!stat.dataset.animated) {
+                            animateValue(stat, finalValue);
+                            stat.dataset.animated = 'true';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+        
+        function animateValue(element, finalValue) {
+            const isPercentage = finalValue.includes('%');
+            const hasPlus = finalValue.includes('+');
+            const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+            
+            if (isNaN(numericValue)) return;
+            
+            const duration = 2000;
+            const steps = 60;
+            const stepValue = numericValue / steps;
+            const stepDuration = duration / steps;
+            let currentValue = 0;
+            
+            const interval = setInterval(() => {
+                currentValue += stepValue;
+                if (currentValue >= numericValue) {
+                    currentValue = numericValue;
+                    clearInterval(interval);
+                }
+                
+                let displayValue = Math.floor(currentValue);
+                if (hasPlus) displayValue += '+';
+                if (isPercentage) displayValue += '%';
+                
+                element.textContent = displayValue;
+            }, stepDuration);
+        }
+        
+        // Add hover effect to timeline items
+        const timelineItems = document.querySelectorAll('.timeline-content');
+        timelineItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection && scrolled < window.innerHeight) {
+                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroSection.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+    </script>
+</body>
+</html>

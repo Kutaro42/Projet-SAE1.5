@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRAUTO - Événements</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1410 50%, #0a0a0a 100%);
+            color: #d4af37;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .gear-decoration {
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateSlow 30s linear infinite;
+        }
+        
+        .gear-1 { top: 8%; right: 12%; animation-duration: 32s; }
+        .gear-2 { bottom: 15%; left: 8%; animation-duration: 38s; animation-direction: reverse; }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(180deg, #1a1410 0%, #0f0c08 100%);
+            color: #d4af37;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+            border-bottom: 3px solid #8b5a2b;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(139, 90, 43, 0.1) 10px,
+                rgba(139, 90, 43, 0.1) 11px
+            );
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #2a1f15 0%, #1a1410 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #d4af37;
+            box-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                inset 0 2px 10px rgba(0, 0, 0, 0.5),
+                0 0 0 3px #8b5a2b,
+                0 0 0 6px #1a1410;
+            border: 2px solid #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        .logoImg{
+            width: 80px;
+            height: 80px;
+        }
+
+
+        .LogoTitle{
+
+            width: 250px;
+            height: 100px;
+
+        }
+
+
+        .site-title h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .site-title p {
+            font-size: 14px;
+            opacity: 0.8;
+            color: #b87333;
+            font-style: italic;
+        }
+
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(180deg, #1a1410 0%, #14100c 100%);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2),
+                0 4px 0 #8b5a2b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-top: 1px solid #8b5a2b;
+            border-bottom: 1px solid #8b5a2b;
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav li::after {
+            content: '⚙';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b5a2b;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        nav li:last-child::after {
+            display: none;
+        }
+
+        nav a {
+            display: block;
+            padding: 18px 30px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 90, 43, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        nav a.active {
+            background: linear-gradient(180deg, rgba(139, 90, 43, 0.3) 0%, rgba(139, 90, 43, 0.5) 100%);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        /*fin de la nav*/
+        
+        /* Page Title */
+        .page-header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5em;
+            color: #d4af37;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.6);
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+        
+        .page-header p {
+            font-size: 1.4em;
+            color: #e5c048;
+            font-style: italic;
+        }
+        
+        .decorative-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 20px auto;
+        }
+        
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tab {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 10px;
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .filter-tab:hover::before {
+            left: 100%;
+        }
+        
+        .filter-tab:hover, .filter-tab.active {
+            border-color: #d4af37;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(139, 115, 85, 0.3) 100%);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .filter-tab.active {
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            color: #0a0a0a;
+            font-weight: bold;
+        }
+        
+        /* Events Grid */
+        .events-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8em;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 15px rgba(212, 175, 55, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37);
+        }
+        
+        .section-title::after {
+            background: linear-gradient(90deg, #d4af37, transparent);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+        
+        .event-card {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 3px solid #8b7355;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #d4af37, #8b7355, #d4af37);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+            filter: blur(10px);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            border-color: #d4af37;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+        }
+        
+        .event-card:hover::before {
+            opacity: 0.6;
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 200px;
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #8b7355;
+        }
+        
+        .event-image svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .event-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 20px;
+            background: rgba(212, 175, 55, 0.95);
+            color: #0a0a0a;
+            font-weight: bold;
+            border-radius: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .event-badge.upcoming {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .event-content {
+            padding: 25px;
+        }
+        
+        .event-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3em;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .event-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            color: #e5c048;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .event-description {
+            color: #c9a961;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #8b7355;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c9a961;
+            font-size: 1em;
+        }
+        
+        .event-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .event-btn {
+            flex: 1;
+            padding: 12px;
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            color: #0a0a0a;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .event-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #e5c048 0%, #9c8466 100%);
+        }
+        
+        .event-btn.secondary {
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.3) 0%, rgba(20, 15, 10, 0.5) 100%);
+            color: #d4af37;
+            border: 2px solid #8b7355;
+        }
+        
+        .event-btn.secondary:hover {
+            border-color: #d4af37;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 85, 0.3) 100%);
+        }
+        
+        /* Event Modal */
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+        
+        .event-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.98) 0%, rgba(20, 15, 10, 0.98) 100%);
+            border: 4px solid #d4af37;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            animation: slideUp 0.4s;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            color: #d4af37;
+            font-size: 1.8em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(212, 175, 55, 0.4);
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            margin-bottom: 30px;
+        }
+        
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .modal-date {
+            font-size: 1.4em;
+            color: #e5c048;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .modal-body {
+            color: #c9a961;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        
+        .modal-body p {
+            margin-bottom: 20px;
+        }
+        
+        .modal-info {
+            background: rgba(10, 10, 10, 0.5);
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+            margin: 25px 0;
+        }
+        
+        .modal-info h4 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .modal-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            color: #0a0a0a;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #e5c048 0%, #9c8466 100%);
+        }
+        
+        /* Calendar Section */
+        .calendar-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(20, 15, 10, 0.6) 0%, rgba(30, 25, 20, 0.6) 100%);
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
+            margin: 60px 0;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .calendar-month {
+            background: linear-gradient(135deg, rgba(30, 25, 20, 0.9) 0%, rgba(20, 15, 10, 0.95) 100%);
+            border: 2px solid #8b7355;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .calendar-month:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .month-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b7355;
+        }
+        
+        .month-events {
+            list-style: none;
+        }
+        
+        .month-event {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(10, 10, 10, 0.4);
+            border-left: 3px solid #d4af37;
+            border-radius: 3px;
+            color: #c9a961;
+            font-size: 1em;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .month-event:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .events-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo::before {
+                font-size: 30px;
+            }
+            
+            .site-title {
+                font-size: 1.6em;
+                letter-spacing: 2px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav a {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5em;
+                letter-spacing: 3px;
+            }
+            
+            .page-header p {
+                font-size: 1.3em;
+            }
+            
+            .decorative-line {
+                width: 200px;
+            }
+            
+            .filter-tabs {
+                gap: 10px;
+            }
+            
+            .filter-tab {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title::before,
+            .section-title::after {
+                display: none;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .event-title {
+                font-size: 1.5em;
+            }
+            
+            .event-actions {
+                flex-direction: column;
+            }
+            
+            .modal-content {
+                padding: 25px;
+            }
+            
+            .modal-title {
+                font-size: 2em;
+            }
+            
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gear-decoration {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo::before {
+                font-size: 24px;
+            }
+            
+            .site-title {
+                font-size: 1.3em;
+                letter-spacing: 1px;
+            }
+            
+            nav a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            
+            .page-header {
+                padding: 40px 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 2em;
+                letter-spacing: 2px;
+            }
+            
+            .page-header p {
+                font-size: 1.1em;
+            }
+            
+            .decorative-line {
+                width: 150px;
+            }
+            
+            .filter-tab {
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+            
+            .section-title {
+                font-size: 1.7em;
+            }
+            
+            .event-image {
+                height: 180px;
+            }
+            
+            .event-content {
+                padding: 20px;
+            }
+            
+            .event-date {
+                font-size: 1.1em;
+            }
+            
+            .event-title {
+                font-size: 1.3em;
+            }
+            
+            .event-description {
+                font-size: 1em;
+            }
+            
+            .event-btn {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5em;
+            }
+            
+            .modal-title {
+                font-size: 1.7em;
+            }
+            
+            .modal-date {
+                font-size: 1.2em;
+            }
+            
+            .modal-body {
+                font-size: 1.05em;
+            }
+            
+            .modal-btn {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            
+            .gear-decoration {
+                display: none;
+            }
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, rgba(15, 10, 5, 0.95) 0%, rgba(10, 5, 0, 0.98) 100%);
+            border-top: 3px solid #d4af37;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .partner {
+            padding: 15px 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #8b7355;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #8b7355;
+            color: #8b7355;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .site-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg style="display: none;">
+        <symbol id="gear" viewBox="0 0 100 100">
+            <path fill="#d4af37" d="M50,20 L55,30 L65,28 L63,38 L72,43 L65,50 L72,57 L63,62 L65,72 L55,70 L50,80 L45,70 L35,72 L37,62 L28,57 L35,50 L28,43 L37,38 L35,28 L45,30 Z">
+                <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="20s" repeatCount="indefinite"/>
+            </path>
+        </symbol>
+    </svg>
+    
+    <svg class="gear-decoration gear-1"><use href="#gear"/></svg>
+    <svg class="gear-decoration gear-2"><use href="#gear"/></svg>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo"><img class="logoImg" src="LogoCircular.png" alt="Logo de l'association"></div>
+            <div class="site-title">
+                <!--<h1>RETRAUTO Club</h1>--><img class="LogoTitle" src="TitreFinalRemastered-removebg-preview.png" alt="RETRAUTO">
+                <p>Association des passionnés d'automobiles classiques et sportives</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html" >Accueil</a></li>
+            <li><a href="voitures.html" >Voitures</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="event.html" class="active" >Événements</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>⚙️ Collection Automobile ⚙️</h1>
+                <div class="decorative-line"></div>
+                <p>Découvrez les joyaux mécaniques de nos passionnés</p>
+            </div>
+    
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>🏁 Nos Événements 🏁</h1>
+                <div class="decorative-line"></div>
+                <p>Rejoignez-nous pour célébrer notre passion commune</p>
+            </div>
+        </section>
+        
+        <!-- Filter Tabs -->
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">Tous les événements</button>
+                <button class="filter-tab" data-filter="upcoming">À venir</button>
+                <button class="filter-tab" data-filter="past">Passés</button>
+            </div>
+        </div>
+        
+        <!-- Upcoming Events -->
+        <section class="events-section" id="upcoming-section">
+            <div class="container">
+                <h2 class="section-title">⚙️ Événements à Venir ⚙️</h2>
+                
+                <div class="events-grid" id="upcoming-events">
+                    <!-- Event 1 -->
+                    <div class="event-card" data-type="upcoming" data-event-id="1">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <defs>
+                                    <linearGradient id="event1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2a1810;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#1a1410;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="200" fill="url(#event1)"/>
+                                <text x="200" y="100" font-size="48" fill="#d4af37" text-anchor="middle" font-family="Cinzel">Hiver</text>
+                                <path d="M50,150 Q100,130 150,150 T250,150 T350,150" stroke="#d4af37" stroke-width="3" fill="none" opacity="0.5"/>
+                            </svg>
+                            <div class="event-badge upcoming">À VENIR</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 15 Novembre 2025</div>
+                            <h3 class="event-title">Exposition "L'Âge d'Or de l'Automobile"</h3>
+                            <p class="event-description">
+                                Plongez dans les années 1920-1960 avec une collection exceptionnelle de 40 véhicules 
+                                restaurés. Conférences, démonstrations mécaniques et rencontres avec les propriétaires.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Musée Automobile, Paris</span>
+                                <span class="event-meta-item">⏰ 10h - 19h</span>
+                                <span class="event-meta-item">👥 200 places</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(1)">Plus d'infos</button>
+                                <button class="event-btn secondary">S'inscrire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="event-card" data-type="upcoming" data-event-id="2">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <rect width="400" height="200" fill="#0f0a05"/>
+                                <circle cx="100" cy="150" r="30" fill="none" stroke="#d4af37" stroke-width="5"/>
+                                <circle cx="300" cy="150" r="30" fill="none" stroke="#d4af37" stroke-width="5"/>
+                                <path d="M70,150 L70,100 Q70,80 90,75 L130,70 L170,50 Q180,45 190,45 L210,45 Q220,45 230,50 L270,70 L310,75 Q330,80 330,100 L330,150" fill="#6b5345" stroke="#d4af37" stroke-width="3"/>
+                                <text x="200" y="35" font-size="28" fill="#d4af37" text-anchor="middle" font-family="Cinzel">Rallye</text>
+                            </svg>
+                            <div class="event-badge upcoming">À VENIR</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 3 Décembre 2025</div>
+                            <h3 class="event-title">Rallye d'Hiver</h3>
+                            <p class="event-description">
+                                Parcours de 200km à travers les paysages enneigés. Épreuves de régularité, 
+                                défis mécaniques et convivialité garantie. Ouvert à tous véhicules d'avant 1990.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Départ: Fontainebleau</span>
+                                <span class="event-meta-item">⏰ 8h - 18h</span>
+                                <span class="event-meta-item">🚗 50 équipages</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(2)">Plus d'infos</button>
+                                <button class="event-btn secondary">S'inscrire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="event-card" data-type="upcoming" data-event-id="3">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <defs>
+                                    <radialGradient id="event3">
+                                        <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                                    </radialGradient>
+                                </defs>
+                                <rect width="400" height="200" fill="url(#event3)"/>
+                                <text x="200" y="90" font-size="42" fill="#d4af37" text-anchor="middle" font-family="Cinzel">Gala</text>
+                                <text x="200" y="130" font-size="28" fill="#e5c048" text-anchor="middle" font-family="Cinzel">2025</text>
+                                <circle cx="200" cy="100" r="80" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.3"/>
+                            </svg>
+                            <div class="event-badge upcoming">À VENIR</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 20 Décembre 2025</div>
+                            <h3 class="event-title">Soirée de Gala de Fin d'Année</h3>
+                            <p class="event-description">
+                                Célébration annuelle dans un cadre exceptionnel. Remise des trophées, 
+                                dîner gastronomique et exposition des plus belles restaurations de l'année.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Château de Versailles</span>
+                                <span class="event-meta-item">⏰ 19h - 1h</span>
+                                <span class="event-meta-item">🎩 Tenue élégante</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(3)">Plus d'infos</button>
+                                <button class="event-btn secondary">S'inscrire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 4 -->
+                    <div class="event-card" data-type="upcoming" data-event-id="4">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <rect width="400" height="200" fill="#1a1410"/>
+                                <text x="200" y="80" font-size="36" fill="#d4af37" text-anchor="middle" font-family="Cinzel">Atelier</text>
+                                <path d="M150,120 L170,100 M180,120 L200,100 M210,120 L230,100 M240,120 L260,100" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="100" y="140" width="200" height="40" fill="none" stroke="#8b7355" stroke-width="3" rx="5"/>
+                                <text x="200" y="165" font-size="18" fill="#e5c048" text-anchor="middle">Restauration</text>
+                            </svg>
+                            <div class="event-badge upcoming">À VENIR</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 15 Janvier 2026</div>
+                            <h3 class="event-title">Atelier : Techniques de Restauration</h3>
+                            <p class="event-description">
+                                Formation pratique aux techniques traditionnelles de restauration. 
+                                Travail du métal, peinture, sellerie et mécanique avec nos maîtres artisans.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Notre Atelier, Paris</span>
+                                <span class="event-meta-item">⏰ 9h - 17h</span>
+                                <span class="event-meta-item">👨‍🏫 15 participants max</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(4)">Plus d'infos</button>
+                                <button class="event-btn secondary">S'inscrire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Past Events -->
+        <section class="events-section" id="past-section">
+            <div class="container">
+                <h2 class="section-title">📜 Événements Passés 📜</h2>
+                
+                <div class="events-grid" id="past-events">
+                    <!-- Past Event 1 -->
+                    <div class="event-card" data-type="past" data-event-id="5">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <rect width="400" height="200" fill="#0a0a0a"/>
+                                <text x="200" y="100" font-size="52" fill="#8b7355" text-anchor="middle" font-family="Cinzel">Printemps</text>
+                                <path d="M50,140 Q100,120 150,140 T250,140 T350,140" stroke="#8b7355" stroke-width="3" fill="none" opacity="0.4"/>
+                            </svg>
+                            <div class="event-badge">TERMINÉ</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 15 Mai 2025</div>
+                            <h3 class="event-title">Rassemblement Printanier 2025</h3>
+                            <p class="event-description">
+                                Plus de 150 véhicules présents à Sainte-Baume, dans le Var. Succès total avec 
+                                2000 visiteurs venus admirer les plus belles pièces de nos collections.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Sainte-Baume</span>
+                                <span class="event-meta-item">👥 2000 visiteurs</span>
+                                <span class="event-meta-item">🚗 150 véhicules</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(5)">Voir le résumé</button>
+                                <button class="event-btn secondary">Galerie photos</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Past Event 2 -->
+                    <div class="event-card" data-type="past" data-event-id="6">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <rect width="400" height="200" fill="#0a0a0a"/>
+                                <text x="200" y="100" font-size="52" fill="#8b7355" text-anchor="middle" font-family="Cinzel">Exposition</text>
+                                <path d="M50,140 Q100,120 150,140 T250,140 T350,140" stroke="#8b7355" stroke-width="3" fill="none" opacity="0.4"/>
+                            </svg>
+                            <div class="event-badge">TERMINÉ</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 8 Juillet 2025</div>
+                            <h3 class="event-title">Exposition d'Été "Voitures de Légende"</h3>
+                            <p class="event-description">
+                                Collection exceptionnelle de 30 véhicules rarissimes prêtés par 
+                                des musées européens. Événement culturel majeur de l'été parisien.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Grand Palais</span>
+                                <span class="event-meta-item">👥 5000 visiteurs</span>
+                                <span class="event-meta-item">🏛️ 30 véhicules</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(6)">Voir le résumé</button>
+                                <button class="event-btn secondary">Galerie photos</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Past Event 3 -->
+                    <div class="event-card" data-type="past" data-event-id="7">
+                        <div class="event-image">
+                            <svg viewBox="0 0 400 200">
+                                <rect width="400" height="200" fill="#0a0a0a"/>
+                                <text x="200" y="100" font-size="52" fill="#8b7355" text-anchor="middle" font-family="Cinzel">Rallye</text>
+                                <path d="M50,140 Q100,120 150,140 T250,140 T350,140" stroke="#8b7355" stroke-width="3" fill="none" opacity="0.4"/>
+                            </svg>
+                            <div class="event-badge">TERMINÉ</div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-date">📅 22 Septembre 2025</div>
+                            <h3 class="event-title">Rallye d'Automne en Bourgogne</h3>
+                            <p class="event-description">
+                                Parcours magnifique de 250km à travers les vignobles bourguignons. 
+                                45 équipages ont participé à cette journée mémorable.
+                            </p>
+                            <div class="event-meta">
+                                <span class="event-meta-item">📍 Bourgogne</span>
+                                <span class="event-meta-item">🚗 45 équipages</span>
+                                <span class="event-meta-item">🏆 3 épreuves</span>
+                            </div>
+                            <div class="event-actions">
+                                <button class="event-btn" onclick="openModal(7)">Voir le résumé</button>
+                                <button class="event-btn secondary">Galerie photos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Calendar Section -->
+        <section class="calendar-section">
+            <div class="container">
+                <h2 class="section-title">📆 Calendrier 2026 📆</h2>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-month">
+                        <h3 class="month-name">Janvier</h3>
+                        <ul class="month-events">
+                            <li class="month-event">15 - Atelier Restauration</li>
+                            <li class="month-event">28 - Assemblée Générale</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-name">Février</h3>
+                        <ul class="month-events">
+                            <li class="month-event">12 - Conférence Histoire Auto</li>
+                            <li class="month-event">26 - Sortie Musée Mulhouse</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-name">Mars</h3>
+                        <ul class="month-events">
+                            <li class="month-event">8 - Atelier Mécanique</li>
+                            <li class="month-event">22 - Préparation Rallye Printemps</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-name">Avril</h3>
+                        <ul class="month-events">
+                            <li class="month-event">5 - Journée Portes Ouvertes</li>
+                            <li class="month-event">20 - Rallye de Printemps</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-name">Mai</h3>
+                        <ul class="month-events">
+                            <li class="month-event">10 - Grand Rassemblement</li>
+                            <li class="month-event">25 - Exposition Bugatti</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-name">Juin</h3>
+                        <ul class="month-events">
+                            <li class="month-event">8 - Concours d'Élégance</li>
+                            <li class="month-event">22 - Pique-nique Annuel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Event Modal -->
+    <div class="event-modal" id="eventModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-date" id="modalDate"></p>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="closeModal()">Fermer</button>
+                <button class="modal-btn">S'inscrire maintenant</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="partners">
+                <div class="partner">⚙️ Engrenages & Cie</div>
+                <div class="partner">🔧 Ateliers Mécaniques Réunis</div>
+                <div class="partner">🏁 Circuit Vintage Paris</div>
+                <div class="partner">⚡ Moteurs d'Antan</div>
+                <div class="partner">🔩 La Forge Automobile</div>
+            </div>
+            <div class="copyright">
+                © 2025 RETRAUTO - Association Loi 1901 | Tous droits réservés | Design Steampunk
+                <br>
+                "Préserver le passé, conduire vers l'avenir"
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Event data
+        const eventsData = {
+            1: {
+                title: "Exposition \"L'Âge d'Or de l'Automobile\"",
+                date: "15 Novembre 2025",
+                description: `
+                    <p>Plongez dans une époque fascinante où l'automobile était synonyme d'artisanat d'art et d'innovation audacieuse.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Programme détaillé</h4>
+                        <p><strong>10h00</strong> - Ouverture et visite guidée de la collection</p>
+                        <p><strong>11h30</strong> - Conférence : "Les grands carrossiers des années 20"</p>
+                        <p><strong>14h00</strong> - Démonstration de restauration en direct</p>
+                        <p><strong>16h00</strong> - Rencontre avec les collectionneurs</p>
+                        <p><strong>18h00</strong> - Cocktail de clôture</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Informations pratiques</h4>
+                        <div class="modal-info-grid">
+                            <div class="modal-info-item">📍 Musée Automobile de Paris</div>
+                            <div class="modal-info-item">💰 Tarif adhérent : 15€</div>
+                            <div class="modal-info-item">🅿️ Parking gratuit disponible</div>
+                            <div class="modal-info-item">☕ Restauration sur place</div>
+                        </div>
+                    </div>
+                    
+                    <p>Ne manquez pas cette occasion unique de découvrir 40 véhicules d'exception rarement exposés au public !</p>
+                `
+            },
+            2: {
+                title: "Rallye d'Hiver",
+                date: "3 Décembre 2025",
+                description: `
+                    <p>Défi sportif et convivial à travers les paysages hivernaux de la région parisienne.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Parcours</h4>
+                        <p><strong>Départ :</strong> Château de Fontainebleau - 8h00</p>
+                        <p><strong>Étape 1 :</strong> Forêt de Fontainebleau (épreuve de régularité)</p>
+                        <p><strong>Déjeuner :</strong> Auberge du Bon Accueil - 12h30</p>
+                        <p><strong>Étape 2 :</strong> Route des crêtes (épreuve de navigation)</p>
+                        <p><strong>Arrivée :</strong> Fontainebleau - 18h00</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Conditions de participation</h4>
+                        <div class="modal-info-grid">
+                            <div class="modal-info-item">🚗 Véhicules avant 1990</div>
+                            <div class="modal-info-item">📋 Contrôle technique obligatoire</div>
+                            <div class="modal-info-item">💰 Inscription : 120€/équipage</div>
+                            <div class="modal-info-item">🏆 Trophées pour les 3 premiers</div>
+                        </div>
+                    </div>
+                    
+                    <p>Un road-book détaillé sera fourni à chaque équipage lors du briefing matinal.</p>
+                `
+            },
+            3: {
+                title: "Soirée de Gala de Fin d'Année",
+                date: "20 Décembre 2025",
+                description: `
+                    <p>Célébrons ensemble une année exceptionnelle dans un cadre prestigieux.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Programme de la soirée</h4>
+                        <p><strong>19h00</strong> - Accueil et cocktail d'honneur</p>
+                        <p><strong>20h00</strong> - Exposition des restaurations 2025</p>
+                        <p><strong>20h30</strong> - Dîner gastronomique (5 services)</p>
+                        <p><strong>22h30</strong> - Remise des trophées annuels</p>
+                        <p><strong>23h30</strong> - Bal et animations</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Trophées décernés</h4>
+                        <p>🏆 Meilleure restauration de l'année</p>
+                        <p>🏆 Prix de l'élégance</p>
+                        <p>🏆 Membre le plus actif</p>
+                        <p>🏆 Prix coup de cœur du public</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Informations</h4>
+                        <div class="modal-info-grid">
+                            <div class="modal-info-item">📍 Orangerie du Château</div>
+                            <div class="modal-info-item">💰 Tarif : 95€/personne</div>
+                            <div class="modal-info-item">🎩 Tenue : Smoking / Robe longue</div>
+                            <div class="modal-info-item">🚗 Voiturier disponible</div>
+                        </div>
+                    </div>
+                `
+            },
+            4: {
+                title: "Atelier : Techniques de Restauration",
+                date: "15 Janvier 2026",
+                description: `
+                    <p>Formation intensive aux savoir-faire traditionnels de la restauration automobile.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Modules de formation</h4>
+                        <p><strong>Module 1 :</strong> Travail de la tôle et soudure (9h-11h)</p>
+                        <p><strong>Module 2 :</strong> Techniques de peinture d'époque (11h-13h)</p>
+                        <p><strong>Pause déjeuner :</strong> 13h-14h</p>
+                        <p><strong>Module 3 :</strong> Restauration sellerie cuir (14h-16h)</p>
+                        <p><strong>Module 4 :</strong> Révision moteur (16h-17h)</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Formateurs</h4>
+                        <p>👨‍🏫 <strong>Édouard Piston</strong> - Maître carrossier (40 ans d'expérience)</p>
+                        <p>👨‍🏫 <strong>Marie Volant</strong> - Spécialiste peinture historique</p>
+                        <p>👨‍🏫 <strong>Jacques Engrenage</strong> - Expert sellerie ancienne</p>
+                        <p>👨‍🏫 <strong>Henri Mécanique</strong> - Mécanicien motoriste</p>
+                    </div>
+                    
+                    <div class="modal-info">
+                        <h4>Infos pratiques</h4>
+                        <div class="modal-info-grid">
+                            <div class="modal-info-item">💰 Tarif : 80€ (matériel fourni)</div>
+                            <div class="modal-info-item">📋 15 places maximum</div>
+                            <div class="modal-info-item">☕ Café et déjeuner inclus</div>
+                            <div class="modal-info-item">📜 Certificat remis</div>
+                        </div>
+                    </div>
+                `
+            },
+            5: {
+                title: "Rassemblement Printanier 2025 - Résumé",
+                date: "15 Mai 2025",
+                description: `
+                    <p>Un succès retentissant pour notre rassemblement annuel !</p>
+                    
+                    <div class="modal-info">
+                        <h4>Chiffres clés</h4>
+                        <div class="modal-info-grid">
+                            <div class="modal-info-item">🚗 150 véhicules exposés</div>
+                            <div class="modal-info-item">👥 2000 visiteurs</div>
+                            <div class="modal-info-item">☀️ Météo parfaite</div>
+                            <div class="modal-info-item">📸 5000+ photos</div>
+                        </div>
+                    </div>
+                    
+                    <p>Une journée mémorable sous un soleil radieux qui a permis d'admirer 
+                    des pièces exceptionnelles : Bugatti Type 57, Mercedes 540K, Delahaye 135...</p>
+                    
+                    <p><strong>Coup de cœur du public :</strong> La Hispano-Suiza H6B de 1924 
+                    restaurée par Auguste Delacroix, qui a remporté le trophée de l'élégance.</p>
+                    
+                    <p>Merci à tous les participants et visiteurs qui ont fait de cette journée 
+                    un moment inoubliable !</p>
+                `
+            },
+            6: {
+                title: "Exposition d'Été \"Voitures de Légende\" - Résumé",
+                date: "8 Juillet 2025",
+                description: `
+                    <p>Un événement culturel exceptionnel qui a marqué l'été parisien.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Véhicules vedettes</h4>
+                        <p>🏆 Bugatti Type 41 Royale (1 des 6 exemplaires au monde)</p>
+                        <p>🏆 Mercedes-Benz W125 (voiture de Grand Prix 1937)</p>
+                        <p>🏆 Rolls-Royce Phantom II Continental</p>
+                        <p>🏆 Delahaye Type 165 Cabriolet Figoni</p>
+                    </div>
+                    
+                    <p>Plus de 5000 visiteurs ont pu admirer ces joyaux du patrimoine automobile 
+                    prêtés exceptionnellement par les plus grands musées européens.</p>
+                    
+                    <p>L'exposition a fait l'objet d'une couverture médiatique importante avec des 
+                    reportages sur France 2, TF1 et dans les magazines spécialisés.</p>
+                `
+            },
+            7: {
+                title: "Rallye d'Automne en Bourgogne - Résumé",
+                date: "22 Septembre 2025",
+                description: `
+                    <p>Un parcours enchanteur à travers les vignobles bourguignons en pleine période 
+                    des vendanges.</p>
+                    
+                    <div class="modal-info">
+                        <h4>Podium</h4>
+                        <p>🥇 <strong>1er :</strong> Henri Mécanique (Mercedes 300 SL) - 0 pénalité</p>
+                        <p>🥈 <strong>2ème :</strong> Victoire Beaumont (Jaguar Type E) - 2 pénalités</p>
+                        <p>🥉 <strong>3ème :</strong> Marguerite Engrenage (Alfa Spider) - 5 pénalités</p>
+                    </div>
+                    
+                    <p>Le parcours de 250km a traversé des paysages à couper le souffle, avec un 
+                    déjeuner mémorable au Château de Pommard.</p>
+                    
+                    <p>Les participants ont particulièrement apprécié l'épreuve de régularité dans 
+                    les vignes et la dégustation de vins proposée à l'arrivée.</p>
+                    
+                    <p>Rendez-vous l'année prochaine pour une nouvelle édition !</p>
+                `
+            }
+        };
+        
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const eventCards = document.querySelectorAll('.event-card');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                
+                // Filter events
+                eventCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        if (card.dataset.type === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Modal functionality
+        function openModal(eventId) {
+            const modal = document.getElementById('eventModal');
+            const event = eventsData[eventId];
+            
+            if (event) {
+                document.getElementById('modalTitle').textContent = event.title;
+                document.getElementById('modalDate').textContent = event.date;
+                document.getElementById('modalBody').innerHTML = event.description;
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('eventModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on background click
+        document.getElementById('eventModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Animate event cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        
+        // Initial setup for animation
+        eventCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+        
+        // Add click event to calendar month events
+        const monthEvents = document.querySelectorAll('.month-event');
+        monthEvents.forEach(event => {
+            event.addEventListener('click', function() {
+                alert('📅 Événement : ' + this.textContent + '\n\nPlus d\'informations seront disponibles prochainement !');
+            });
+        });
+        
+        // Inscription button functionality
+        const inscriptionButtons = document.querySelectorAll('.event-btn.secondary');
+        inscriptionButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.event-card');
+                const title = card.querySelector('.event-title').textContent;
+                
+                if (confirm('Souhaitez-vous vous inscrire à l\'événement :\n\n"' + title + '" ?\n\nVous serez redirigé vers le formulaire d\'inscription.')) {
+                    // Redirect to contact page
+                    window.location.href = '#contacts';
+                }
+            });
+        });
+        
+        // Add hover sound effect simulation
+        eventCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'all 0.4s ease';
+            });
+        });
+        
+        // Modal inscription button
+        const modalButtons = document.querySelectorAll('.modal-btn');
+        modalButtons.forEach(btn => {
+            if (btn.textContent.includes('inscrire')) {
+                btn.addEventListener('click', function() {
+                    closeModal();
+                    setTimeout(() => {
+                        window.location.href = '#contacts';
+                    }, 300);
+                });
+            }
+        });
+        
+        // Gallery photos button functionality
+        const galleryButtons = document.querySelectorAll('.event-btn.secondary');
+        document.querySelectorAll('.event-card[data-type="past"] .event-btn.secondary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                alert('📸 Galerie photo\n\nLa galerie complète de cet événement sera bientôt disponible dans votre espace membre !');
+            });
+        });
+    </script>
+</body>
+</html>
