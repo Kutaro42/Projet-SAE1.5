@@ -1,0 +1,668 @@
+/* ========================================
+   RESPONSIVE DESIGN - RETRAUTO CLUB
+   feuille de style
+   ======================================== */
+
+/* TABLETTES/I-PAD (max-width: 1024px) */
+@media (max-width: 1024px) {
+    /* Header */
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .logo, .logoImg {
+        width: 70px;
+        height: 70px;
+    }
+
+    .LogoTitle {
+        width: 220px;
+        height: 90px;
+    }
+
+    .site-title h1 {
+        font-size: 28px;
+    }
+
+    .site-title p {
+        font-size: 13px;
+    }
+
+    /* Navigation */
+  
+    nav {
+        position: static; /* ou relative */
+    }
+    
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    nav li::after {
+        display: none;
+    }
+
+    /* Page Header */
+    .page-header h1 {
+        font-size: 2.8em;
+        letter-spacing: 2px;
+    }
+
+    .page-header p {
+        font-size: 1.2em;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Form Grid */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Cars Grid - Voitures */
+    .cars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* Content Grid - Accueil */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* Carousel */
+    .carousel {
+        height: 400px;
+    }
+
+    .carousel-caption {
+        font-size: 1.3em;
+        padding: 20px;
+    }
+
+    /* Ticker */
+    .ticker-item {
+        font-size: 1.1em;
+        padding: 0 30px;
+    }
+
+    /* Partners */
+    .partners {
+        gap: 20px;
+    }
+
+    .partner {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+/* MOBILES (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Container */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header */
+    header {
+        padding: 15px 0;
+    }
+
+    .header-content {
+        padding: 0 15px;
+    }
+
+    .logo, .logoImg {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .LogoTitle {
+        width: 200px;
+        height: 80px;
+    }
+
+    .site-title h1 {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .site-title p {
+        font-size: 12px;
+    }
+
+    /* Navigation */
+    nav {
+        position: relative;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        padding: 15px 20px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Page Headers */
+    .page-header {
+        padding: 30px 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+
+    .page-header p {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    .decorative-line {
+        width: 150px;
+    }
+
+    .decorative-line::before,
+    .decorative-line::after {
+        font-size: 16px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.8em;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-title::before,
+    .section-title::after {
+        width: 30px;
+    }
+
+    /* Social Section */
+    .social-section {
+        padding: 25px;
+    }
+
+    .social-link {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .social-info h3 {
+        font-size: 1.3em;
+    }
+
+    .social-info p {
+        font-size: 1em;
+    }
+
+    /* Info Boxes */
+    .info-box {
+        padding: 20px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .info-text h4 {
+        font-size: 1.2em;
+    }
+
+    .info-text p {
+        font-size: 1em;
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+        padding: 30px 20px;
+    }
+
+    .newsletter-header h2 {
+        font-size: 2em;
+    }
+
+    .newsletter-header p {
+        font-size: 1.1em;
+    }
+
+    .form-grid {
+        gap: 20px;
+    }
+
+    .form-group label {
+        font-size: 1.1em;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    .checkbox-group {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .checkbox-group label {
+        font-size: 1em;
+    }
+
+    .submit-btn {
+        padding: 15px 35px;
+        font-size: 1.1em;
+        width: 100%;
+    }
+
+    /* Cars Grid */
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 30px 0;
+    }
+
+    .car-card {
+        border-width: 2px;
+    }
+
+    .car-image {
+        height: 200px;
+    }
+
+    .car-info {
+        padding: 15px;
+    }
+
+    .car-name {
+        font-size: 1.4em;
+    }
+
+    .car-year {
+        font-size: 1.1em;
+    }
+
+    .car-description {
+        font-size: 1em;
+        min-height: auto;
+    }
+
+    .chat-badge {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+
+    /* Chat Modal */
+    .chat-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .chat-header {
+        padding: 15px;
+    }
+
+    .chat-header h3 {
+        font-size: 1.5em;
+    }
+
+    .close-chat {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3em;
+    }
+
+    .chat-messages {
+        padding: 15px;
+        max-height: 300px;
+    }
+
+    .message {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    .chat-input-container {
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .chat-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .chat-send {
+        width: 100%;
+        height: 45px;
+        border-radius: 25px;
+    }
+
+    /* Carousel - Accueil */
+    .carousel-section {
+        padding: 20px;
+    }
+
+    .carousel {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    /* Ticker */
+    .ticker-section {
+        padding: 15px 0;
+    }
+
+    .ticker-item {
+        font-size: 1em;
+        padding: 0 25px;
+    }
+
+    /* Discover Button */
+    .discover-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    /* Content Boxes */
+    .box {
+        padding: 20px;
+    }
+
+    .box h2 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    .event-item,
+    .member-item {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .event-date,
+    .event-title,
+    .member-name {
+        font-size: 1em;
+    }
+
+    .event-item p,
+    .member-item p {
+        font-size: 0.95em;
+    }
+
+    /* Map Section */
+    .info-box svg {
+        max-width: 100%;
+    }
+
+    /* Additional Info Cards */
+    div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 0 15px;
+        margin-top: 40px;
+    }
+
+    .partners {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .partner {
+        padding: 10px 20px;
+        font-size: 1em;
+        width: 100%;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 0.9em;
+        padding: 15px 10px;
+        line-height: 1.6;
+    }
+
+    /* Gear Decorations */
+    .gear-decoration {
+        width: 100px;
+        height: 100px;
+        opacity: 0.03;
+    }
+}
+
+/* PETITS MOBILES (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Page Header */
+    .page-header h1 {
+        font-size: 1.8em;
+    }
+
+    .page-header p {
+        font-size: 1em;
+    }
+
+    /* Logo */
+    .LogoTitle {
+        width: 180px;
+        height: 70px;
+    }
+
+    /* Navigation */
+    nav a {
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    /* Newsletter */
+    .newsletter-header h2 {
+        font-size: 1.6em;
+    }
+
+    .newsletter-header p {
+        font-size: 1em;
+    }
+
+    /* Car Cards */
+    .car-name {
+        font-size: 1.3em;
+    }
+
+    .car-image {
+        height: 180px;
+    }
+
+    /* Chat */
+    .chat-header h3 {
+        font-size: 1.3em;
+    }
+
+    /* Carousel */
+    .carousel {
+        height: 250px;
+    }
+
+    .carousel-caption {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+
+    /* Ticker */
+    .ticker-item {
+        font-size: 0.95em;
+    }
+
+    /* Copyright */
+    .copyright {
+        font-size: 0.85em;
+    }
+}
+
+/* AMÉLIORATION DE L'EXPÉRIENCE TACTILE */
+@media (hover: none) and (pointer: coarse) {
+    /* Augmenter les zones de touch */
+    nav a,
+    .social-link,
+    .info-item,
+    .car-card,
+    .partner,
+    .discover-btn,
+    .submit-btn,
+    .chat-send,
+    .close-chat {
+        min-height: 44px;
+        cursor: pointer;
+    }
+
+    /* Désactiver les effets hover sur mobile */
+    .car-card:hover {
+        transform: none;
+    }
+
+    .social-link:hover {
+        transform: none;
+    }
+
+    .partner:hover {
+        transform: none;
+    }
+
+    /* Activer les effets au touch */
+    .car-card:active,
+    .social-link:active,
+    .partner:active,
+    .discover-btn:active,
+    .submit-btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+}
+
+/* ORIENTATION PAYSAGE SUR MOBILE */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-header {
+        padding: 20px 0;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
+    }
+
+    .carousel {
+        height: 350px;
+    }
+
+    .chat-container {
+        max-height: 85vh;
+    }
+
+    .chat-messages {
+        max-height: 250px;
+    }
+}
+
+/* ANIMATIONS OPTIMISÉES POUR MOBILE */
+@media (max-width: 768px) {
+    /* Réduire les animations pour améliorer les performances */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.2s !important;
+    }
+
+    .gear-decoration {
+        animation: none !important;
+    }
+
+    .ticker-content {
+        animation-duration: 30s !important;
+    }
+}
+
+/* IMPRESSION */
+@media print {
+    header,
+    nav,
+    footer,
+    .chat-modal,
+    .chat-badge,
+    .gear-decoration,
+    .ticker-section,
+    .discover-btn,
+    .submit-btn {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .car-card,
+    .box,
+    .info-box,
+    .social-section {
+        border: 1px solid #333;
+        break-inside: avoid;
+    }
+}
