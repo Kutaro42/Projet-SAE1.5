@@ -1,4 +1,4 @@
-# RETRAUTO — Plateforme Web pour Association Automobile Rétro
+# RETRAUTO : Plateforme Web pour Association Automobile Rétro
 
 > **Projet Universitaire — BUT Informatique Semestre 2 (Parcours DFS)**  
 > Conception et développement d'un site web complet, vitrine et applicatif, pour une association fictive de passionnés de mécaniques anciennes, arborant une charte graphique unique inspirée de l'univers *Steampunk*.
