@@ -1,11 +1,11 @@
-# ⚙️ RETRAUTO — Plateforme Web pour Association Automobile Rétro
+# RETRAUTO — Plateforme Web pour Association Automobile Rétro
 
 > **Projet Universitaire — BUT Informatique Semestre 2 (Parcours DFS)**  
 > Conception et développement d'un site web complet, vitrine et applicatif, pour une association fictive de passionnés de mécaniques anciennes, arborant une charte graphique unique inspirée de l'univers *Steampunk*.
 
 ---
 
-## 📋 Présentation du Projet
+## Présentation du Projet
 
 Dans le cadre du parcours **Développement d'Applications et Direction des Systèmes d'Information (DFS)**, ce projet consistait à concevoir un écosystème numérique modélisant les besoins réels d'une structure associative d'envergure (1 200+ membres actifs). 
 
@@ -19,7 +19,7 @@ La plateforme intègre la gestion de la communication de l'association, la valor
 
 ---
 
-## 🛠️ Stack Technique & Compétences Clés
+## Stack Technique & Compétences Clés
 
 Ce projet met en application les fondamentaux de l'ingénierie web et de l'intégration logicielle :
 
@@ -30,7 +30,7 @@ Ce projet met en application les fondamentaux de l'ingénierie web et de l'inté
 
 ---
 
-## 📱 Focus Intégration Responsive & Performance
+## Focus Intégration Responsive & Performance
 
 Une attention particulière a été portée à la flexibilité de l'interface graphique face aux contraintes matérielles, un point essentiel du parcours DFS.
 
@@ -43,14 +43,14 @@ Une attention particulière a été portée à la flexibilité de l'interface gr
 
 ---
 
-## 🔒 Sécurité et Qualité du Code
+## Sécurité et Qualité du Code
 
 *   **Gestion des Données Sensibles :** Implémentation de mécanismes d'exclusion de fichiers de configuration locaux via `.gitignore` (clés et variables d'environnement).
 *   **Robustesse :** Isolation stricte des styles CSS pour prévenir les régressions visuelles lors du redimensionnement (Biais d'affichage mobile éliminés).
 
 ---
 
-## 🚀 Installation et Lancement Rapide
+## Installation et Lancement Rapide
 
 ### Prérequis
 Un navigateur web moderne (Chrome, Firefox, Safari ou Edge).
@@ -71,7 +71,7 @@ Un navigateur web moderne (Chrome, Firefox, Safari ou Edge).
 
 ---
 
-## 📈 Perspectives d'Évolution (BUT 2 / DFS)
+## Perspectives d'Évolution (BUT 2 / DFS)
 Dans une optique d'évolution vers une architecture de Système d'Information robuste, les prochaines étapes de ce projet incluent :
 1. La persistance des données du formulaire d'adhésion via une base de données relationnelle (SQL / PostgreSQL).
 2. La dynamisation du système de messagerie des véhicules à l'aide d'un back-end orienté objet (Java / PHP).
